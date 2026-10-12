@@ -40,9 +40,12 @@ import training_fns as tf
 from model import build_model, count_parameters, default_model_config
 
 
+DATA_DIR = "data/sample_dummy_COonCu"
+
+
 def parse_args(argv=None):
     p = argparse.ArgumentParser(description="Train a small CNN on a dataset built with ImSpec Labeler.")
-    p.add_argument("data_dir", help="the labeled/training_data folder")
+    p.add_argument("data_dir", help="the labeled/training_data folder", default=DATA_DIR)
     p.add_argument("--set", dest="name", default=None, help="dataset prefix, e.g. binary_image")
     p.add_argument("--epochs", type=int, default=100)
     p.add_argument("--patience", type=int, default=10)
